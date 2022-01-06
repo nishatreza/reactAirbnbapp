@@ -3,13 +3,22 @@ import starimg from "../images/Star.png"
 
 
 export default function Card(props) {
-    // console.log(props)
-    // es6 template string syntax backtick ---> `../images/${props.img}`
+    // console.log(props.openSpots)
+    let badgeText
+    if (props.openSpots === 0) {
+        badgeText = "SOLD OUT"
+
+    } else if (props.location === "Online") {
+        badgeText = "ONLINE"
+
+    }
     return (
 
         <section className="card">
 
-            {/* <img src={`../images/${props.img}`} alt="" className="card--image" /> */}
+            {/* {props.openSpots === 0 && <div className="card--badge">SOLD OUT</div>} */}
+            {badgeText && <div className="card--badge">{badgeText}</div>}
+
             <img src={props.img} alt="" className="card--image" />
 
             <div className="card--stats">
